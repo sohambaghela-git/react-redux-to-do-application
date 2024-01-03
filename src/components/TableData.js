@@ -1,11 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, Routes, Route } from 'react-router-dom';
+import { deleteToDo } from '../redux/actions/index'
 
 function TableData(){
     const tableData = useSelector((state)=> state.todoReducers.list);
-    console.log(tableData);
     const dispatch = useDispatch();
+
     return(
         <div className="container mt-4">
         <div className='row'>
@@ -32,8 +33,13 @@ function TableData(){
                   <td className="w-24">{item.data.date}</td>
                   <td className="w-24">
                     {/* <Link to={`/detail/${item.id}`}><img src={ShowImage} alt="Logo" className="logo" /></Link>
-                    <Link to={`/updateDetails/${item.id}`}><img src={UpdateImage} alt="Logo" className="logo" /></Link>
-                    <button onClick={() => handleDelete(item.id)}>&empty;</button> */}
+                    <Link to={`/updateDetails/${item.id}`}><img src={UpdateImage} alt="Logo" className="logo" /></Link> */}
+                    <i 
+                        className="fa fa-trash-o" 
+                        style={{fontSize:"21px",color:"red"}}
+                        onClick={() => dispatch(deleteToDo(item.id))}    
+                    >
+                    </i>
                   </td>
                 </tr>
               ))}

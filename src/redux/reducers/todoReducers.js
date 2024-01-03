@@ -25,6 +25,22 @@ const todoReducers = (state=initialData, action) =>{
                 list: newList
             }
 
+        case "UPDATE":
+            const updatedList = state.list.map((item) => {
+                if (item.id === action.payload.id) {
+                    return {
+                        ...item,
+                        data: action.payload.data
+                    };
+                }
+                return item;
+            });
+        
+            return {
+                ...state,
+                list: updatedList
+            };          
+
         default: return state;
     }
 }

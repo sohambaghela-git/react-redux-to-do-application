@@ -14,3 +14,13 @@ export const deleteToDo = (id) =>{
         id
     }
 }
+
+export const updateToDo = (id, data) =>{
+    return {
+        type: "UPDATE",
+        payload: {
+            data: data,
+            id
+        }
+    }
+}

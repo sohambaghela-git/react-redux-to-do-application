@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, Routes, Route } from 'react-router-dom';
-import { deleteToDo } from '../redux/actions/index'
+import { deleteToDo } from '../redux/actions/index';
 
 function TableData(){
     const tableData = useSelector((state)=> state.todoReducers.list);
@@ -32,12 +32,11 @@ function TableData(){
                   <td className="w-34">{item.data.description}</td>
                   <td className="w-24">{item.data.date}</td>
                   <td className="w-24">
-                    {/* <Link to={`/detail/${item.id}`}><img src={ShowImage} alt="Logo" className="logo" /></Link>
-                    <Link to={`/updateDetails/${item.id}`}><img src={UpdateImage} alt="Logo" className="logo" /></Link> */}
+                    <Link to={`/UpdateDetail/${item.id}`}><i class="fa fa-pencil" style={{fontSize:"21px", marginLeft:"8%", marginRight:"8%"}}></i></Link>
                     <i 
                         className="fa fa-trash-o" 
-                        style={{fontSize:"21px",color:"red"}}
-                        onClick={() => dispatch(deleteToDo(item.id))}    
+                        style={{fontSize:"21px",color:"red", marginLeft:"8%", marginRight:"8%"}}
+                        onClick={() => dispatch(deleteToDo(item.id))}
                     >
                     </i>
                   </td>
